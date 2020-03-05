@@ -12,12 +12,14 @@ class CommentsListController: UITableViewController {
     
     var comments:[Coment] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         navigationController?.navigationBar.isHidden = false
     }
-
+    
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,4 +43,26 @@ class CommentsListController: UITableViewController {
         guard let detailVC = segue.destination as? DetailCommentsController else {return}
         detailVC.textFullDiscription = sender as? String ?? ""
     }
+    
+    func fetchData(){
+        NetworkServise.shared.fetchDataWithAlamofire(urlString: UrlRequest.get.rawValue) { [weak self]coments in
+            DispatchQueue.main.async {
+                guard let self = self else {return}
+                self.comments = coments ?? []
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func setData(){
+        NetworkServise.shared.sendDataWithAlamofire(urlString: UrlRequest.post.rawValue, userData: DataManager.userData) { coment in
+            DispatchQueue.main.async {
+                guard let coment = coment else {return}
+                self.comments.append(coment)
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
+
+

@@ -19,6 +19,7 @@
 		920B7D0724100A3300E3D2A3 /* DetailCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B7D0624100A3300E3D2A3 /* DetailCommentsController.swift */; };
 		920B7D092410104300E3D2A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B7D082410104300E3D2A3 /* MenuViewController.swift */; };
 		920B7D0B24101F5C00E3D2A3 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B7D0A24101F5C00E3D2A3 /* CommentViewCell.swift */; };
+		92BFD585241153D100D4788E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BFD584241153D100D4788E /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		920B7D0624100A3300E3D2A3 /* DetailCommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentsController.swift; sourceTree = "<group>"; };
 		920B7D082410104300E3D2A3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		920B7D0A24101F5C00E3D2A3 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
+		92BFD584241153D100D4788E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A9E3F1D31EE79B4B93CA3658 /* Pods-NetworkingWithAlamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingWithAlamofire.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingWithAlamofire/Pods-NetworkingWithAlamofire.debug.xcconfig"; sourceTree = "<group>"; };
 		B79B368E42548FD28841ABBE /* Pods-NetworkingWithAlamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingWithAlamofire.release.xcconfig"; path = "Target Support Files/Pods-NetworkingWithAlamofire/Pods-NetworkingWithAlamofire.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,10 +75,11 @@
 		920B7CE42410073F00E3D2A3 /* NetworkingWithAlamofire */ = {
 			isa = PBXGroup;
 			children = (
+				92BFD5832411539100D4788E /* DataManager */,
 				920B7CF9241007DF00E3D2A3 /* NetworkService */,
 				920B7CFF2410096200E3D2A3 /* Model */,
-				920B7CFE2410094200E3D2A3 /* Controllers */,
 				920B7CFD2410091000E3D2A3 /* View */,
+				920B7CFE2410094200E3D2A3 /* Controllers */,
 				920B7CFC241008F900E3D2A3 /* SupportingFiles */,
 			);
 			path = NetworkingWithAlamofire;
@@ -127,6 +130,14 @@
 				920B7D002410098600E3D2A3 /* Comment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		92BFD5832411539100D4788E /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				92BFD584241153D100D4788E /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		F286D3DEB0E9CB2B839234D7 /* Pods */ = {
@@ -268,6 +279,7 @@
 				920B7CE82410073F00E3D2A3 /* SceneDelegate.swift in Sources */,
 				920B7D0724100A3300E3D2A3 /* DetailCommentsController.swift in Sources */,
 				920B7D0B24101F5C00E3D2A3 /* CommentViewCell.swift in Sources */,
+				92BFD585241153D100D4788E /* DataManager.swift in Sources */,
 				920B7D03241009D400E3D2A3 /* CommentsListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

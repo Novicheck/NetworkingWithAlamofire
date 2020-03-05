@@ -18,8 +18,4 @@ class DetailCommentsController: UIViewController {
         super.viewDidLoad()
         detailTextView.text = textFullDiscription
     }
-    
-    deinit {
-        print ("Deinit DetailCommentsController")
-    }
 }

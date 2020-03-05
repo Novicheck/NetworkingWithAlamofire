@@ -11,13 +11,6 @@ import UIKit
 class MenuViewController: UICollectionViewController {
     
     private let userRequests = UserRequest.allCases
-    private let userData = [
-      "postId": 1,
-      "id": 1,
-      "name": "id labore ex et quam laborum",
-      "email": "Eliseo@gardner.biz",
-      "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
-        ] as [String : Any]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +23,8 @@ class MenuViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CommentViewCell else {return UICollectionViewCell()}
-        let text = userRequests[indexPath.row].rawValue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CommentViewCell
+        let text = userRequests[indexPath.item].rawValue
         cell.menuLabel.text = text
         return cell
     }
@@ -54,20 +47,9 @@ class MenuViewController: UICollectionViewController {
         guard let segueIdentifire = segue.identifier else { return }
         switch segueIdentifire {
             case "AlamofireGet":
-                NetworkServise.shared.fetchDataWithAlamofire(urlString: UrlRequest.get.rawValue) { coments in
-                    DispatchQueue.main.async {
-                        commentsListVC.comments = coments ?? []
-                        commentsListVC.tableView.reloadData()
-                    }
-            }
+                commentsListVC.fetchData()
             case "AlamofirePost":
-                NetworkServise.shared.sendDataWithAlamofire(urlString: UrlRequest.post.rawValue, userData: userData) { coment in
-                    DispatchQueue.main.async {
-                        guard let coment = coment else {return}
-                        commentsListVC.comments.append(coment)
-                        commentsListVC.tableView.reloadData()
-                    }
-            }
+                commentsListVC.setData()
             default: break
         }
     }
